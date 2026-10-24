@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 底部迷你播放栏（无播放时显示"酷狗音乐"占位） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/miniPlayerBar"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    android:background="@color/bg_header"
+    android:gravity="center_vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="8dp"
+    android:clickable="true"
+    android:focusable="true" >
+
+    <TextView
+        android:id="@+id/tvMiniIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="♪"
+        android:textColor="@color/accent"
+        android:textSize="22sp"
+        android:background="@drawable/bg_circle_button" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="6dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvMiniTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="酷狗音乐"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tvMiniArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="搜索你想听的歌"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMiniPlay"
+        style="@style/ActionButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="6dp"
+        android:padding="0dp"
+        android:text="▶" />
+
+</LinearLayout>

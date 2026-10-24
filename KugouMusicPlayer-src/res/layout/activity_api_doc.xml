@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="酷狗音乐 API 文档（从APK逆向提取）"
+            android:textColor="@color/accent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="以下API接口从酷狗音乐APK (classes.dex) 中逆向提取，版本约为2014年。"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:paddingBottom="12dp" />
+
+        <!-- API 1 -->
+        <TextView style="@style/ApiTitle" android:text="1. 搜索音乐 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://mobilecdn.kugou.com/new/app/i/search.php?cmd=301&amp;keyword={关键词}&amp;page={页码}&amp;pagesize={数量}&amp;plat=0" />
+        <TextView style="@style/ApiDesc" android:text="参数: cmd=301(搜索), keyword=关键词(URL编码), page=页码, pagesize=每页数量, plat=0(Android)&#10;返回: JSON，包含hash、songname、singername、album_id、duration等字段" />
+
+        <!-- API 2 -->
+        <TextView style="@style/ApiTitle" android:text="2. 获取歌曲播放地址 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://trackercdn.kugou.com/i/?hash={歌曲hash}&amp;cmd=playUrl&amp;ext=m4a&amp;plat=0" />
+        <TextView style="@style/ApiDesc" android:text="参数: hash=歌曲MD5值, cmd=playUrl, ext=m4a/mp3/flac(音质)&#10;返回: 可直接播放的音频文件URL。不同音质: cmd=101(m4a), 102(mp3), 104(高音质)" />
+
+        <!-- API 3 -->
+        <TextView style="@style/ApiTitle" android:text="3. 歌曲详细信息 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://hashinfo.server.kugou.net:6500/QueryNameInfo.asp?hash={歌曲hash}" />
+        <TextView style="@style/ApiDesc" android:text="参数: hash=歌曲MD5值&#10;返回: 歌曲名、歌手、专辑、时长、文件大小等" />
+
+        <!-- API 4 -->
+        <TextView style="@style/ApiTitle" android:text="4. MV列表/搜索 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://mobilecdn.kugou.com/new/app/i/mv.php?cmd=100&amp;classid={分类}&amp;page={页码}&amp;pagesize={数量}" />
+        <TextView style="@style/ApiDesc" android:text="参数: cmd=100(MV列表), classid=1(华语)/2(欧美)/3(日韩)/4(现场)&#10;返回: mvhash、title、singer、playurl、img等字段" />
+
+        <!-- API 5 -->
+        <TextView style="@style/ApiTitle" android:text="5. MV播放地址 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://mobilecdn.kugou.com/new/app/i/tool.php?cmd=506&amp;path={MV路径}&amp;mvhash={MV hash}" />
+        <TextView style="@style/ApiDesc" android:text="参数: cmd=506(获取MV地址), path=MV资源路径, mvhash=MV标识&#10;返回: MV视频文件真实播放地址，支持mp4/flv" />
+
+        <!-- API 6 -->
+        <TextView style="@style/ApiTitle" android:text="6. 歌词 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://mobilecdn.kugou.com/new/app/i/krc.php?cmd=200&amp;songName={歌曲名}&amp;hash={hash}&amp;timelength={时长}" />
+        <TextView style="@style/ApiDesc" android:text="参数: cmd=200(搜索歌词)/201(下载歌词), songName=歌曲名, hash=歌曲hash, timelength=时长(毫秒)" />
+
+        <!-- API 7 -->
+        <TextView style="@style/ApiTitle" android:text="7. 乐库/排行榜 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET http://mobilecdn.kugou.com/new/app/i/yueku.php?cmd=106&amp;page=1&amp;pagesize=20" />
+        <TextView style="@style/ApiDesc" android:text="参数: cmd=106(乐库推荐)，其他cmd对应不同榜单" />
+
+        <!-- API 8 -->
+        <TextView style="@style/ApiTitle" android:text="8. 收藏/同步 API" />
+        <TextView style="@style/ApiEndpoint" android:text="POST http://mobileservice.kugou.com/new/app/i/tool.php  /collect/upload.php" />
+        <TextView style="@style/ApiDesc" android:text="说明: 收藏需登录态，通过userid/token鉴权。标识: yzone.url.songcollect(收藏), yzone.url.songfavorite(喜爱)&#10;本应用使用SharedPreferences本地存储实现离线收藏" />
+
+        <!-- API 9 -->
+        <TextView style="@style/ApiTitle" android:text="9. 下载音乐 API" />
+        <TextView style="@style/ApiEndpoint" android:text="GET {playUrl} (直接下载播放地址返回的音频文件)" />
+        <TextView style="@style/ApiDesc" android:text="流程: 1.搜索API获取hash → 2.playUrl API获取真实地址 → 3.HTTP下载&#10;音质: ext=m4a(标准)/mp3(高品质)/无损需额外权限" />
+
+        <!-- API 10 -->
+        <TextView style="@style/ApiTitle" android:text="10. 音量增强（原生实现）" />
+        <TextView style="@style/ApiEndpoint" android:text="native: libkgmedia.so → native_setVolumeBoost()" />
+        <TextView style="@style/ApiDesc" android:text="原APK通过JNI调用libkgmedia.so原生库实现VolumeBoost。&#10;本应用使用AudioManager.setStreamVolume最大化 + 软件增益提示实现兼容方案" />
+
+        <!-- 通用参数 -->
+        <TextView style="@style/ApiTitle" android:text="通用参数说明" />
+        <TextView style="@style/ApiDesc" android:text="plat: 0=Android, 1=iOS&#10;version: 客户端版本号&#10;appid: 应用ID&#10;token/userid: 用户登录凭证(需登录接口)&#10;imei: 设备IMEI(统计接口)" />
+
+    </LinearLayout>
+</ScrollView>

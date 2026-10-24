@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark" >
+
+    <!-- 标题栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@color/bg_header"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="下载管理"
+            android:textColor="@color/accent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDlPath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_hint"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <!-- Tab切换 -->
+    <RadioGroup
+        android:id="@+id/rgDlType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/bg_card" >
+
+        <RadioButton
+            android:id="@+id/rbDlMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已下载音乐"
+            android:textColor="@color/text_secondary"
+            android:checked="true"
+            android:buttonTint="@color/primary" />
+
+        <RadioButton
+            android:id="@+id/rbDlMV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:text="已下载MV"
+            android:textColor="@color/text_secondary"
+            android:buttonTint="@color/primary" />
+    </RadioGroup>
+
+    <!-- 文件列表 -->
+    <ListView
+        android:id="@+id/lvDownload"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/divider"
+        android:dividerHeight="1dp" />
+
+    <TextView
+        android:id="@+id/tvDlEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="暂无下载文件\n去搜索页面下载吧"
+        android:textColor="@color/text_hint"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- 底部迷你播放栏 -->
+    <include layout="@layout/view_mini_player" />
+
+</LinearLayout>

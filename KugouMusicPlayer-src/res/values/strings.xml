@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">酷狗音乐播放器</string>
+    <string name="search">搜索</string>
+    <string name="player">播放</string>
+    <string name="mv_player">MV播放</string>
+    <string name="favorite">收藏</string>
+    <string name="download">下载</string>
+    <string name="api_doc">API文档</string>
+    <string name="search_hint">输入歌曲名或歌手名</string>
+    <string name="search_music">音乐</string>
+    <string name="search_mv">MV</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="prev">上一首</string>
+    <string name="next">下一首</string>
+    <string name="volume_boost">一键增强音量</string>
+    <string name="boost_on">增强中</string>
+    <string name="add_favorite">收藏</string>
+    <string name="remove_favorite">取消收藏</string>
+    <string name="download_music">下载音乐</string>
+    <string name="download_mv">下载MV</string>
+    <string name="no_result">未找到相关结果</string>
+    <string name="no_favorite">暂无收藏</string>
+    <string name="no_download">暂无下载任务</string>
+    <string name="searching">搜索中...</string>
+    <string name="loading">加载中...</string>
+    <string name="download_start">开始下载</string>
+    <string name="download_complete">下载完成</string>
+    <string name="download_fail">下载失败</string>
+    <string name="favorite_added">已添加到收藏</string>
+    <string name="favorite_removed">已取消收藏</string>
+    <string name="boost_enabled">音量增强已开启</string>
+    <string name="boost_disabled">音量增强已关闭</string>
+    <string name="boost_not_supported">当前设备不支持软件音量增强，已最大化系统音量</string>
+    <string name="clear_favorite">清空收藏</string>
+    <string name="confirm_clear_favorite">确定清空所有收藏吗？</string>
+    <string name="total_favorite">共 %1$d 首收藏</string>
+</resources>

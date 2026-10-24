@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/bg_card"
+    android:layout_margin="6dp" >
+
+    <TextView
+        android:id="@+id/tvDlName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="文件名"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <ProgressBar
+        android:id="@+id/pbDownload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginTop="6dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_progress" />
+
+    <TextView
+        android:id="@+id/tvDlStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="4dp"
+        android:text="等待中"
+        android:textColor="@color/text_hint"
+        android:textSize="10sp" />
+
+</LinearLayout>
